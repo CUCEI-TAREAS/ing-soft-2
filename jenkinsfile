@@ -1,0 +1,18 @@
+pipeline {
+    agent {
+        docker { image 'busybox'
+        }
+    }
+    stages {
+		stage('Build') {
+                steps{
+                    sh echo "all is fine"
+                }
+			}
+        stage('Test') {
+            steps {
+                sh echo "hola"
+            }
+        }
+    }
+}
