@@ -3,7 +3,7 @@ package poscar;
 import db.Db;
 import db.Connector;
 import db.ConFile;
-//import gui.Window;
+import gui.Gui_Connect_Db;
 
 import java.io.IOException;
 
@@ -28,6 +28,10 @@ public class Poscar {
 		filedb = new ConFile(FILE_DB);
 
 		try{
+
+            Gui_Connect_Db gui_condb = new Gui_Connect_Db();
+            gui_condb.init();
+
 			if ( filedb.fileExists() ){
 				db = filedb.loadfile();
 				if ( db == null ){
@@ -54,18 +58,3 @@ public class Poscar {
 		}
     }
 }
-
-/*
-si el archivo de configuracion de la base de datos no existe
-entonces crear archivo para conectarse a la base de datos
-    mostrar la forma de creear conexcion a la db
-        la db no existe, desea crear la db
-
-si no se puede conectar a la baase de datos entocnces
-entonces mostrar la forma de conexion a la base de datos
-
-
-si se puede conectar a la base de datos pero no existe
-
-crear la base de datos y mostrar mensajes de esto
-*/
